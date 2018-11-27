@@ -7,17 +7,16 @@ services:
     - "4466:4466"
     environment:
       PRISMA_CONFIG: |
-        managementApiSecret: my-server-secret-123
         port: 4466
         databases:
           default:
             connector: mysql
-            migrations: true
-            host: mysql-db
+            host: mysql
             port: 3306
             user: root
             password: prisma
-  mysql-db:
+            migrations: true
+  mysql:
     image: mysql:5.7
     restart: always
     environment:
